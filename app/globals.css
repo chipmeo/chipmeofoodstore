@@ -1,10 +1,10 @@
+/* globals.css */
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 
-  /* Admin UI palette */
   --admin-bg: #f8fafc;
   --admin-card: #ffffff;
   --admin-border: #e2e8f0;
@@ -12,13 +12,6 @@
   --admin-primary-hover: #2563eb;
   --admin-danger: #ef4444;
   --admin-danger-hover: #dc2626;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -40,117 +33,44 @@ body {
   padding: 0;
 }
 
-/* ===========================
-   ADMIN PANEL BASE STYLE
-=========================== */
-
-.admin-container {
-  padding: 24px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.admin-card {
-  background: var(--admin-card);
-  border: 1px solid var(--admin-border);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
-  margin-bottom: 24px;
-}
-
-.admin-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 12px;
-}
-
-.admin-table th,
-.admin-table td {
-  border: 1px solid var(--admin-border);
-  padding: 10px 12px;
-  text-align: left;
-}
-
-.admin-table th {
-  background: #f1f5f9;
-  font-weight: 600;
-}
+/* Admin panel */
+.admin-container { padding: 24px; max-width: 1200px; margin: auto; }
+.admin-card { background: var(--admin-card); border: 1px solid var(--admin-border); padding: 20px; border-radius: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.06); margin-bottom: 24px; }
+.admin-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+.admin-table th, .admin-table td { border: 1px solid var(--admin-border); padding: 10px 12px; text-align: left; }
+.admin-table th { background: #f1f5f9; font-weight: 600; }
 
 /* Buttons */
-.btn {
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-}
+.btn { padding: 6px 12px; border-radius: 6px; border: none; cursor: pointer; font-size: 14px; }
+.btn-primary { background: var(--admin-primary); color: white; }
+.btn-primary:hover { background: var(--admin-primary-hover); }
+.btn-danger { background: var(--admin-danger); color: white; }
+.btn-danger:hover { background: var(--admin-danger-hover); }
+.btn-light { background: #e5e7eb; }
+.btn-light:hover { background: #d1d5db; }
 
-.btn-primary {
-  background: var(--admin-primary);
-  color: white;
-}
-
-.btn-primary:hover {
-  background: var(--admin-primary-hover);
-}
-
-.btn-danger {
-  background: var(--admin-danger);
-  color: white;
-}
-
-.btn-danger:hover {
-  background: var(--admin-danger-hover);
-}
-
-.btn-light {
-  background: #e5e7eb;
-}
-
-.btn-light:hover {
-  background: #d1d5db;
-}
-
-/* Form elements */
-.admin-form input {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid var(--admin-border);
-  width: 100%;
-}
-
-.admin-form {
-  display: grid;
-  gap: 12px;
-  max-width: 480px;
-}
+/* Form */
+.admin-form input { padding: 10px; border-radius: 6px; border: 1px solid var(--admin-border); width: 100%; }
+.admin-form { display: grid; gap: 12px; max-width: 480px; }
 
 /* POS layout */
-.pos-wrapper {
-  display: flex;
-  gap: 24px;
-  margin-top: 24px;
+.pos-wrapper { display: flex; gap: 24px; margin-top: 24px; }
+.pos-menu, .pos-basket { background: var(--admin-card); border: 1px solid var(--admin-border); padding: 20px; border-radius: 12px; flex: 1; }
+.pos-basket { max-width: 360px; }
+
+/* Menu list */
+.menu-list li { margin-bottom: 10px; display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--admin-border); }
+
+/* ===============================
+   RESPONSIVE
+=============================== */
+@media (max-width: 1024px) {
+  .pos-wrapper { flex-direction: column; gap: 16px; }
+  .pos-basket { max-width: 100%; }
 }
 
-.pos-menu,
-.pos-basket {
-  background: var(--admin-card);
-  border: 1px solid var(--admin-border);
-  padding: 20px;
-  border-radius: 12px;
-  flex: 1;
-}
-
-.pos-basket {
-  max-width: 360px;
-}
-
-/* Menu items list */
-.menu-list li {
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--admin-border);
+@media (max-width: 640px) {
+  .admin-form { max-width: 100%; }
+  .admin-card { padding: 16px; }
+  .btn { width: 100%; text-align: center; }
 }
