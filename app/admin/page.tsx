@@ -89,6 +89,7 @@ export default function AdminPage() {
           </tbody>
         </table>
       </section>
+      <h5>By meo</h5>
     </div>
   );
 }
