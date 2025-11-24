@@ -24,10 +24,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <header style={{ padding: 12, borderBottom: '1px solid #eee', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ fontWeight: 600 }}>Chipmeo</div>
+          <nav style={{ display: 'flex', gap: 12 }}>
+            <a href="/admin">Admin</a>
+            <a href="/sales">Sales POS</a>
+            <a href="/">Home</a>
+          </nav>
+        </header>
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   );
